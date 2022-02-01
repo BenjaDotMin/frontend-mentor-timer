@@ -1,0 +1,33 @@
+@import "./_mixins.scss";
+@import "./_colors.scss";
+@import "./_fonts.scss";
+
+nav{display: flex; align-content: center; justify-content: center; height: 63px; margin-top: 52px;
+    ul{background-color: $black; border-radius: 40px; display: flex; align-content: center; justify-content: center; width: 373px; padding: 2px 5px 0 8px; position: relative;
+        li{display: flex; align-items: center; justify-content: center; flex:1; @include font(1.4, 17.36, 1, $sans, 700, rgba($lightBlue, .4)); letter-spacing: 0.002rem; z-index: 2; cursor: pointer; transition: color .24s;
+            &:nth-child(2){padding-left: 2px;}
+            &:hover{color: $lightBlue;}
+            &.active{color: $darkBlue;}           
+        }
+        &:after{content:""; position: absolute; z-index: 1; top:50%; left:7px; transform: translateY(-50%); height: 48px; width: 120px; border-radius: 40px; transition: background-color 0.2s ease-out, transform 0.2s ease-out, left 0.2s ease-out, right 0.2s ease-out;}
+        &.short-break{&:after{left: calc(100% / 3 + 4px);}}
+        &.long-break{&:after{left: calc(100% / 1.5 - 2px);}}
+        &.red{&:after{background-color: $red;}}
+        &.blue{&:after{background-color: $blue;}}
+        &.purple{&:after{background-color: $purple;}}
+        &.sans{li{font-family: $sans;}}
+        &.slab{li{font-family: $slab;}}
+        &.mono{li{font-family: $mono; letter-spacing: -0.08rem;}}
+    }
+    @include mq(440){margin-top: 43px;
+        ul{width: 327px;
+            li{font-size: 1.2rem;}
+            &:after{width: 106px;}
+        }       
+    }
+    @include mq(350){
+        ul{width: 290px;
+            &:after{width: 93px;}
+        }       
+    }
+}

@@ -1,0 +1,47 @@
+@import "./_mixins.scss";
+@import "./_colors.scss";
+@import "./_fonts.scss";
+
+.clock{flex: 1; display: flex; align-items: center; justify-content: center;
+    .clock-outer{display: flex; align-items: center; justify-content: center; height: 410px; width: 410px; margin: 0 auto 0; background: linear-gradient(315deg, #2E325A 0%, #0E112A 100%); box-shadow: -50px -50px 100px #272C5A, 50px 50px 100px #121530; border-radius: 100%;
+        .clock-inner{height: 342px; width: 342px; background: #161932; outline: 12px solid #161932; border-radius: inherit; display: flex; align-items: center; flex-direction: column; justify-content: center; position: relative; top:1px;
+            svg+div{@include font(10, 76, 1, $sans, 700); top:-6px !important;}
+            h3{@include font(1.6, 13, 15, $sans, 700); text-transform: uppercase; transform: translate(8px, 86px); cursor: pointer; transition: color 0.2s ease-out;
+                &:hover{color: $red;}
+            }           
+            &>div, svg, path{width: 100% !important; height: 100% !important; position: absolute !important; top:0; right:0; bottom:0; left: 0;}            
+        }
+        &.red{h3{&:hover{color: $red;}}        
+            .clock-inner{svg{path{stroke: $red;}}}         
+        }
+        &.blue{h3{&:hover{color: $blue;}}
+            .clock-inner{svg{path{stroke: $blue;}}}     
+        }
+        &.purple{h3{&:hover{color: $purple;}}
+            .clock-inner{svg{path{stroke: $purple;}}}     
+        }
+        &.sans{h3, svg+div{font-family: $sans;}}
+        &.slab{h3, svg+div{font-family: $slab;}}
+        &.mono{h3, svg+div{font-family: $mono;} svg+div{font-size: 8rem;}}
+    }    
+    @include mq(560){
+        .clock-outer{height: 300px; width: 300px;
+            .clock-inner{height: 267px; width: 267px; outline: 3px solid #161932;
+                svg+div{font-size: 6.6rem; line-height: 61px; transform: translateY(1px);}
+                h3{font-size: 1.2rem; line-height: 11px; letter-spacing: 10px; transform: translate(8px, 62px);}  
+                &>div, svg, path{top:4px; left: 4px;}                      
+            }
+            &.mono{svg+div{font-size: 5.5rem;}}  
+        }
+    }
+
+    @include mq(350){
+        .clock-outer{height: 260px; width: 260px;               
+            .clock-inner{height: 227px; width: 227px; outline: 0 solid #161932;
+                svg+div{font-size: 5rem; transform: translateY(1px);}
+                h3{transform: translate(8px, 48px); font-size: 1rem; letter-spacing: 8px;}              
+            }        
+            &.mono{svg+div{font-size: 4.5rem;}}           
+        }
+    }
+}

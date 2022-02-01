@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&family=Roboto+Slab:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+
+body {margin: 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background-color: #1E213F;}
+
+//generic custom font
+html, button, input{font-family: 'Kumbh Sans', sans-serif;}
+
+*{box-sizing: border-box;}
+html{font-size: 62.5%;}
+p, h1, h2, h3, h4, h5, h6{margin: 0;}
+a{text-decoration: none;}
+ul{margin: 0; padding: 0;
+  li{list-style: none;}
+}
+#app {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+main{
+  .container{width: 100%; max-width: 1440px; margin: 0 auto;}
+  img{display: block; max-width: 100%;}
+}
